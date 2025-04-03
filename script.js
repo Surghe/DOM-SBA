@@ -26,3 +26,19 @@ async function fetchAnime(animeName) {
         results.innerHTML = "<p>Failed to load anime. Try again later.</p>";
     }
 }
+
+// Display anime results
+function displayAnime(animeList) {
+    results.innerHTML = "";
+    animeList.forEach(anime => {
+        const animeCard = document.createElement("div");
+        animeCard.classList.add("anime-card");
+        animeCard.innerHTML = `
+            <h2>${anime.title}</h2>
+            <img src="${anime.images.jpg.image_url}" alt="${anime.title}">
+            <p>${anime.synopsis || "No synopsis available."}</p>
+            <a href="${anime.url}" target="_blank">More Info</a>
+        `;
+        results.appendChild(animeCard);
+    });
+}
