@@ -42,3 +42,14 @@ function displayAnime(animeList) {
         results.appendChild(animeCard);
     });
 }
+
+// Event-driven programming: Handle form submission
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    const animeName = input.value.trim();
+    if (animeName) {
+        fetchAnime(animeName);
+    } else {
+        alert("Please enter an anime name.");
+    }
+});
